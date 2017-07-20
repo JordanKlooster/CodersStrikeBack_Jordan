@@ -1,0 +1,64 @@
+// Java in Coders Strike Back
+
+
+
+
+//For Init before Main Game Loop
+
+  //Checkpoint Location Init
+        int checksAmount = 0;
+        int[] checksX = new int[4];
+        int[] checksY = new int[4];
+        boolean firstPass = true;
+        boolean DoneMapping = false;
+
+
+
+
+
+
+
+
+
+
+
+// For In Main Game Loop            
+            
+  // Checkpoint location code
+            
+            if(firstPass){
+                checksX[checksAmount] = nextCheckpointX;
+                checksY[checksAmount] = nextCheckpointY;
+                
+                firstPass = false;
+                
+                //checksAmount += 1; // gonna 
+            }
+            
+            
+                //               and         current Checks[] isn't nextCheckpoint
+            if( !DoneMapping    &&      checksX[checksAmount] != nextCheckpointX    &&  checksY[checksAmount] != nextCheckpointX )
+            {
+                
+                //  checkAmount isn't 0    if check(0,0) is nextCheck 
+                if( checksAmount != 0    &&  checksX[0] == nextCheckpointX   &&  checksY[0] == nextCheckpointY )
+                {
+                    DoneMapping = true;
+                }
+                else{
+                
+                    checksAmount ++; //will stop at the highest value in the array
+                    
+                    checksX[checksAmount] = nextCheckpointX;
+                    checksY[checksAmount] = nextCheckpointY;
+                }
+            }
+            
+            
+            for (int i = 0; i <4; i++)
+            {
+                System.err.println( "checksX " + i + " ,checksY " + i + ": " + checksX[i] + "," + checksY[i] );
+            }
+            System.err.println( "nextCheckpointX: " + " nextCheckpointY: " + nextCheckpointX + ","+ nextCheckpointY );
+            System.err.println( "checksAmount: " + checksAmount);
+            
