@@ -6,11 +6,11 @@
 //For Init before Main Game Loop
 
   //Checkpoint Location Init
-        int checksAmount = 0;
-        int[] checksX = new int[4];
-        int[] checksY = new int[4];
-        boolean firstPass = true;
-        boolean DoneMapping = false;
+        int checksAmount = 0;         // amount of checkpoints, also used while counting up 
+        int[] checksX = new int[4];   // Keeps checkpoint positions in these arrays
+        int[] checksY = new int[4];   // 
+        boolean firstPass = true;     // for a one time pass for the first spot in the array
+        boolean DoneMapping = false;  // to stop setting array variables when you see one you've already done.
 
 
 
@@ -26,21 +26,21 @@
             
   // Checkpoint location code
             
-            if(firstPass){
+            if(firstPass){            // One time code for setting the first variable on the arrays
                 checksX[checksAmount] = nextCheckpointX;
                 checksY[checksAmount] = nextCheckpointY;
                 
                 firstPass = false;
-                
-                //checksAmount += 1; // gonna 
             }
             
             
+                // Adds values to the array until it sees the first one you added, then it stops.
                 //               and         current Checks[] isn't nextCheckpoint
             if( !DoneMapping    &&      checksX[checksAmount] != nextCheckpointX    &&  checksY[checksAmount] != nextCheckpointX )
             {
                 
-                //  checkAmount isn't 0    if check(0,0) is nextCheck 
+                  //  if it sees the first checkpoint it added  {it stops the adding process}  else {Keep adding checkpoints}
+                  //  checkAmount isn't 0    if check(0,0) is nextCheck 
                 if( checksAmount != 0    &&  checksX[0] == nextCheckpointX   &&  checksY[0] == nextCheckpointY )
                 {
                     DoneMapping = true;
@@ -55,6 +55,10 @@
             }
             
             
+            
+            
+            
+                  // Prints the values of the array to the debug console
             for (int i = 0; i <4; i++)
             {
                 System.err.println( "checksX " + i + " ,checksY " + i + ": " + checksX[i] + "," + checksY[i] );
